@@ -10,7 +10,7 @@ Komma Pranitha - 230001040
 
 V.Abhinayasri - 230003082
 
-Ahila - 230041012
+Akhila - 230041012
 
 
 Overview
@@ -39,7 +39,7 @@ Installation & Setup
 
 Step 1: Clone the Repository
 
-git clone https://github.com/yourusername/p2p-chat-app.git
+git clone[ https://github.com/yourusername/p2p-chat-app.git](https://github.com/Pranithaa26/Peer-to-Peer-Chat-Application.git)
 cd p2p-chat-app
 
 Step 2: Run the Application
