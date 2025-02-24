@@ -48,7 +48,7 @@ class Peer:
                 sender_ip, sender_port = sender_ip_port.split(":")
                 sender_port = int(sender_port)
                 
-                print(f"{sender_ip}:{sender_port} {chat_message}")
+                print(f"{sender_ip}:{sender_port} {team_name}: {chat_message}")
                 self.add_peer(sender_ip, sender_port)
                 
                 if chat_message.lower() == "exit":
@@ -64,19 +64,21 @@ class Peer:
             client_socket.close()
 
     def send_message(self, ip, port, message):
-        """Sends a message to a peer."""
+        """Sends a message to a peer following the required format."""
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
                 client_socket.settimeout(5)
                 client_socket.connect((ip, port))
+                
                 sender_ip = socket.gethostbyname(socket.gethostname())
                 formatted_message = f"{sender_ip}:{self.port} {self.name} {message}"
+                
                 client_socket.sendall(formatted_message.encode("utf-8"))
                 print(f"[SENT] {formatted_message}")
 
                 response = client_socket.recv(1024).decode("utf-8").strip()
-                print(response)
-                
+                print(f"[RECEIVED] {response}")
+
                 self.add_peer(ip, port)  
         except (socket.timeout, ConnectionRefusedError):
             print(f"[ERROR] Peer {ip}:{port} is unreachable. Removing from list.")
