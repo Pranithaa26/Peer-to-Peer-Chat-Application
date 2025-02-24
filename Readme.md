@@ -10,7 +10,7 @@ Komma Pranitha - 230001040
 
 V.Abhinayasri - 230003082
 
-Akhila - 230041012
+J.Akhila - 230041012
 
 
 Overview
